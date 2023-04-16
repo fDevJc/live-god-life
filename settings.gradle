@@ -20,4 +20,6 @@ findProject(':api-modules:common-api')?.name = 'common-api'
 include 'domain-modules'
 include 'domain-modules:feed-domain'
 findProject(':domain-modules:feed-domain')?.name = 'feed-domain'
+include 'domain-modules:goal-domain'
+findProject(':domain-modules:goal-domain')?.name = 'goal-domain'
 
