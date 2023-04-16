@@ -79,12 +79,12 @@ public class FeedController {
 		  내부테스트 및 샘플피드생성용 임시 메서드
 		  1.0 출시버전에는 피드생성기능없이 출시
 	*/
-	@PostMapping("/feeds")
-	public ResponseEntity<ApiResponse> createFeed(
-		@RequestBody CreateFeedRequest request) {
-		feedService.createFeed(request);
-		return null;
-	}
+	// @PostMapping("/feeds")
+	// public ResponseEntity<ApiResponse> createFeed(
+	// 	@RequestBody CreateFeedRequest request) {
+	// 	feedService.createFeed(request);
+	// 	return null;
+	// }
 
 	@ExceptionHandler
 	public ResponseEntity<ApiResponse> noSuchFeedException(NoSuchFeedException e) {

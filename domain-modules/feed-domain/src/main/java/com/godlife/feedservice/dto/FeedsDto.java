@@ -1,6 +1,5 @@
 package com.godlife.feedservice.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.godlife.feedservice.client.response.UserResponse;
 import com.querydsl.core.annotations.QueryProjection;
 
@@ -25,7 +24,7 @@ public class FeedsDto {
 	private Boolean bookMarkStatus;
 
 	//===사용자정보===
-	@JsonIgnore
+	// @JsonIgnore
 	private Long userId;
 	private UserResponse.UserDto user;
 

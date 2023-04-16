@@ -2,8 +2,6 @@ package com.godlife.feedservice.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.godlife.feedservice.client.response.UserResponse;
 import com.godlife.feedservice.domain.enums.Category;
 import com.querydsl.core.annotations.QueryProjection;
@@ -11,7 +9,7 @@ import com.querydsl.core.annotations.QueryProjection;
 import lombok.Getter;
 
 @Getter
-@JsonInclude(JsonInclude.Include.NON_NULL)
+// @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FeedMindsetsTodosDto {
 	//===피드 정보===
 	private Long feedId;
@@ -19,7 +17,7 @@ public class FeedMindsetsTodosDto {
 	private String title;
 
 	//===사용자정보===
-	@JsonIgnore
+	// @JsonIgnore
 	private Long userId;
 	private UserResponse.UserDto user;
 

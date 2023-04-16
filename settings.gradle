@@ -17,4 +17,7 @@ include 'cloud-modules:discovery-server'
 findProject(':cloud-modules:discovery-server')?.name = 'discovery-server'
 include 'api-modules:common-api'
 findProject(':api-modules:common-api')?.name = 'common-api'
+include 'domain-modules'
+include 'domain-modules:feed-domain'
+findProject(':domain-modules:feed-domain')?.name = 'feed-domain'
 

@@ -8,7 +8,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.godlife.feedservice.api.request.CreateFeedRequest;
+// import com.godlife.feedservice.api.request.CreateFeedRequest;
 import com.godlife.feedservice.client.UserServiceClient;
 import com.godlife.feedservice.client.response.BookmarkResponse;
 import com.godlife.feedservice.client.response.UserResponse;
@@ -39,7 +39,7 @@ public class FeedService {
 
 	private final UserServiceClient userServiceClient;
 
-	public List<FeedsDto> getFeeds(Pageable page, Long userId, @Nullable String category, @Nullable List<Long> feedIds) {
+	public List<FeedsDto> getFeeds(@Nullable Pageable page, Long userId, @Nullable String category, @Nullable List<Long> feedIds) {
 
 		List<FeedsDto> feedsDtos = feedRepository.findAllByCategoryAndFeedIds(page, category, feedIds);
 		feedDtosSetUserInfo(feedsDtos, getUsersInfoUsingAPI(getUserIdsToString(feedsDtos)));
@@ -109,18 +109,18 @@ public class FeedService {
 		return feedMindsetsTodosDto;
 	}
 
-	@Transactional
-	public void createFeed(CreateFeedRequest feedDto) {
-
-		Feed feed = feedDto.createFeedEntity();
-		List<Content> contents = feedDto.createContentsEntity(feed);
-		List<Mindset> mindsets = feedDto.createMindsetsEntity(feed);
-		Todos todos = new Todos(feedDto.createTodosEntity(feed));
-
-		feed.registerTodosInfo(todos);
-
-		contentRepository.saveAll(contents);
-		mindsetRepository.saveAll(mindsets);
-		todoRepository.saveAll(todos.get());
-	}
+	// @Transactional
+	// public void createFeed(CreateFeedRequest feedDto) {
+	//
+	// 	Feed feed = feedDto.createFeedEntity();
+	// 	List<Content> contents = feedDto.createContentsEntity(feed);
+	// 	List<Mindset> mindsets = feedDto.createMindsetsEntity(feed);
+	// 	Todos todos = new Todos(feedDto.createTodosEntity(feed));
+	//
+	// 	feed.registerTodosInfo(todos);
+	//
+	// 	contentRepository.saveAll(contents);
+	// 	mindsetRepository.saveAll(mindsets);
+	// 	todoRepository.saveAll(todos.get());
+	// }
 }
