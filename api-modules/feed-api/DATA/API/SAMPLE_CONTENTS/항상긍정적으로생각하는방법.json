@@ -1,0 +1,74 @@
+{
+  "userId": 1,
+  "title": "항상 긍정적으로 생각하는 방법",
+  "image": "http://server/feeds/image1.jpg",
+  "contents": [
+    {
+      "title": "NONE",
+      "content": "안녕하세요\n      주변 사람들을 보면, 왜 그렇게 힘들어하는지, 왜 그렇게 어렵게 생각하는지 모를 때가 많습니다. 그래서 저는 제가 생각하는 방식과 행동하는 방식에 대해서 이야기를 해보려고 합니다. 모든 사람들에게 이 방법이 적합하다고 할 수는 없겠지만, 적어도 긍정적으로 생각하는데는 도움이 될 것 같아요!\n      아 우선 저는 사회경험이 그렇게 많지는 않은 4년차 기획자입니다. 저는 다양한 서비스를 기획하며 항상 새로운 챌린지에 직면하고있습니다. 하지만 저는 항상 재미있어요!\n      사람들은 너무 일어나지 않은 일들에 대해서 과하게 두려워하는 경향이 있는 것 같습니다. 그리고 실패를 하게 되면 세상이 무너질 것이라고 생각하는 사람들도 많은 것 같구요.",
+      "orderNumber": 0
+    }
+  ],
+  "categoryName": "커리어",
+  "categoryCode": "CAREER",
+  "mindsets": [
+    {
+      "content": "“ 지금 있는 일들이 어렵다면, 우리는 성장하고 있는거야! 이 어려움이 모여 더 강한 나를 만들어주는거야”."
+    }
+  ],
+  "todos": [
+    {
+      "title": "내 분야에서 최고가 되기 위한 공부 계속하기",
+      "type": "TASK",
+      "depth": 1,
+      "orderNumber": 0,
+      "period": 180,
+      "repetitionType": "WEEK",
+      "repetitionParams": [
+        "화",
+        "목"
+      ],
+      "notification": "0900"
+    },
+    {
+      "title": "내일 일어날 일들, 해야하는 일들을 전날 밤 정리하기",
+      "type": "TASK",
+      "depth": 1,
+      "orderNumber": 2,
+      "period": 180,
+      "repetitionType": "WEEK",
+      "repetitionParams": [
+        "월",
+        "화",
+        "수",
+        "목",
+        "금"
+      ],
+      "notification": "0900"
+    },
+    {
+      "title": "남들은 나에게 생각보다 관심이 없다는 것을 인지하기",
+      "type": "TASK",
+      "depth": 1,
+      "orderNumber": 2,
+      "period": 180,
+      "repetitionType": "WEEK",
+      "repetitionParams": [
+        "월"
+      ],
+      "notification": "0900"
+    },
+    {
+      "title": "나를 행복하게 해주는 사람들에게 먼저 카톡보내기",
+      "type": "TASK",
+      "depth": 1,
+      "orderNumber": 3,
+      "period": 90,
+      "repetitionType": "WEEK",
+      "repetitionParams": [
+        "금"
+      ],
+      "notification": "0900"
+    }
+  ]
+}

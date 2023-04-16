@@ -1,0 +1,148 @@
+{
+  "status": "success",
+  "message": null,
+  "data": {
+    "feedId": 1,
+    "category": "CAREER",
+    "title": "이직하기",
+    "viewCount": 1,
+    "pickCount": 0,
+    "todoCount": 6,
+    "todoScheduleDay": 0,
+    "image": "http://server/feeds/image1.jpg",
+    "contents": [
+      {
+        "title": "1.소제목",
+        "content": "1.내용",
+        "orderNumber": 0
+      },
+      {
+        "title": "2.소제목",
+        "content": "2.내용",
+        "orderNumber": 1
+      }
+    ],
+    "mindsets": [
+      {
+        "id": 1,
+        "content": "사는건 레벨업이 아닌 스펙트럼을..."
+      }
+    ],
+    "todos": [
+      {
+        "todoId": 1,
+        "type": "FOLDER",
+        "title": "포폴 완성",
+        "depth": 1,
+        "orderNumber": 0,
+        "period": null,
+        "repetitionType": null,
+        "repetitionParams": null,
+        "notification": null,
+        "childTodos": [
+          {
+            "todoId": 2,
+            "type": "TASK",
+            "title": "컨셉잡기",
+            "depth": 2,
+            "orderNumber": 0,
+            "period": null,
+            "repetitionType": "DAY",
+            "repetitionParams": null,
+            "notification": "0900",
+            "childTodos": null
+          },
+          {
+            "todoId": 3,
+            "type": "TASK",
+            "title": "스케치",
+            "depth": 2,
+            "orderNumber": 1,
+            "period": null,
+            "repetitionType": "WEEK",
+            "repetitionParams": [
+              "월",
+              "목",
+              "토"
+            ],
+            "notification": "0900",
+            "childTodos": null
+          },
+          {
+            "todoId": 4,
+            "type": "TASK",
+            "title": "UI작업",
+            "depth": 2,
+            "orderNumber": 2,
+            "period": null,
+            "repetitionType": "MONTH",
+            "repetitionParams": [
+              "9",
+              "15",
+              "22"
+            ],
+            "notification": "0900",
+            "childTodos": null
+          }
+        ]
+      },
+      {
+        "todoId": 5,
+        "type": "FOLDER",
+        "title": "개발프로젝트 해보기",
+        "depth": 1,
+        "orderNumber": 1,
+        "period": null,
+        "repetitionType": null,
+        "repetitionParams": null,
+        "notification": null,
+        "childTodos": [
+          {
+            "todoId": 6,
+            "type": "TASK",
+            "title": "IT 동아리 서류 내기",
+            "depth": 2,
+            "orderNumber": 0,
+            "period": null,
+            "repetitionType": "MONTH",
+            "repetitionParams": [
+              "9",
+              "15",
+              "22"
+            ],
+            "notification": "0900",
+            "childTodos": null
+          },
+          {
+            "todoId": 7,
+            "type": "TASK",
+            "title": "파이썬공부",
+            "depth": 2,
+            "orderNumber": 0,
+            "period": null,
+            "repetitionType": "MONTH",
+            "repetitionParams": [
+              "9",
+              "15",
+              "22"
+            ],
+            "notification": "0900",
+            "childTodos": null
+          }
+        ]
+      },
+      {
+        "todoId": 8,
+        "type": "TASK",
+        "title": "D-day 샘플",
+        "depth": 1,
+        "orderNumber": 2,
+        "period": null,
+        "repetitionType": "NONE",
+        "repetitionParams": null,
+        "notification": "0900",
+        "childTodos": []
+      }
+    ]
+  }
+}

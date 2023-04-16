@@ -1,0 +1,92 @@
+{
+  "userId": 1,
+  "title": "홈베이킹으로 주말을 더 즐겁게 살기",
+  "image": "http://server/feeds/image1.jpg",
+  "contents": [
+    {
+      "title": "자기소개를 해주세요!",
+      "content": "안녕하세요. 8살 아들을 둔 윤기맘이예요.",
+      "orderNumber": 0
+    },
+    {
+      "title": "어떤 갓생을 소개해 주시나요?",
+      "content": "주말 단 하루안에 홈베이킹을 하는 방법이요.",
+      "orderNumber": 1
+    },
+    {
+      "title": "갓생을 살게된 계기가 무엇인가요?",
+      "content": "저는 워킹맘이예요. 그래서 주중에는 아들과 시간을 많이 못보내요. 그게 항상 아들에게 미안하였고 꾸준히 특별한 추억을 줄 수 있는 방법이 무엇일까 생각했어요. 아들이 빵을 좋아하니 함께 베이킹을 하며 좋은 추억을 쌓을 수 있겠다 생각하여 주말 베이킹을 시작하게 되었어요.",
+      "orderNumber": 2
+    },
+    {
+      "title": "갓생을 산 방법을 소개해주세요.",
+      "content": "베이킹을 할려면 집에 사실 필수적으로 오븐이 필요해요. 혹시 오븐이 없는 분들은 미니오븐을 구매하시는것도 추천드립니다:)\n\n저는 요리랑도 거리가 멀어 처음에 어떤것을 시작해야 할지 막연하더라구요. 그래서 원데이 클래스를 신청해서 베이킹의 감을 익혔습니다.\n\n그리고 유튜브도 좋지만 초보자인 저에게는 너무 많은 빵중에 어떤것을 해야할지, 어떤 난의도인지도 잘 모르겠더라구요. 저는 서점에가서 초보자를 위한 베이킹 책을 골라서 매주 주말마다 순서대로 한개씩 만들어 보았습니다.\n\n베이킹에 필요한 재료들도 매주 월요일에 이번주 주말에 도전할 빵을 고르고, 그빵에 필요한 재료들은 금요일에 장을 보고 들어갔어요. 저희 가족이 원래 금요일에 장을 보통 보기 때문에 따로 장을 봐야 한다는 부담이 없어서 좋았습니다.",
+      "orderNumber": 3
+    },
+    {
+      "title": "어떤 사람에게 갓생 투두를 추천하나요?",
+      "content": "베이킹을 꾸준히 해보고 싶으신 분들",
+      "orderNumber": 4
+    },
+    {
+      "title": "갓생을 시작할 분들에게 응원한마디해주세요.",
+      "content": "베이킹은 생각보다 더 어렵고 오랜 정성이 필요하지만, 빵이 나오는 순간 그 뿌듯함은 정말 말로 표현할 수 없습니다.\n\n아들과 함께 만들어보며 실패와 성공을 경험하며 같이 좋은 추억과 성장할 수 있는 계기가 되기때문에 처음에는 귀찮더라도 취미생활로 꾸준히 하는것을 추천드려요.",
+      "orderNumber": 5
+    }
+  ],
+  "categoryName": "취미생활",
+  "categoryCode": "HOBBY",
+  "mindsets": [
+    {
+      "content": "빵이 부풀며 커져가는 추억"
+    }
+  ],
+  "todos": [
+    {
+      "title": "초보자를 위한 베이킹 책 사기",
+      "type": "TASK",
+      "depth": 1,
+      "orderNumber": 0,
+      "period": 7,
+      "repetitionType": "NONE",
+      "repetitionParams": null,
+      "notification": "0900"
+    },
+    {
+      "title": "금주 베이킹할 빵종류 정하기",
+      "type": "TASK",
+      "depth": 1,
+      "orderNumber": 1,
+      "period": 90,
+      "repetitionType": "WEEK",
+      "repetitionParams": [
+        "월"
+      ],
+      "notification": "0900"
+    },
+    {
+      "title": "금주 재료 장보기",
+      "type": "TASK",
+      "depth": 1,
+      "orderNumber": 2,
+      "period": 90,
+      "repetitionType": "WEEK",
+      "repetitionParams": [
+        "금"
+      ],
+      "notification": "0900"
+    },
+    {
+      "title": "베이킹하기",
+      "type": "TASK",
+      "depth": 1,
+      "orderNumber": 3,
+      "period": 90,
+      "repetitionType": "WEEK",
+      "repetitionParams": [
+        "토"
+      ],
+      "notification": "0900"
+    }
+  ]
+}

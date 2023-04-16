@@ -1,0 +1,82 @@
+{
+  "userId": 1,
+  "title": "장기 수험생활 우울증에서 벗어나기!",
+  "image": "http://server/feeds/image1.jpg",
+  "contents": [
+    {
+      "title": "자기소개를 해주세요!",
+      "content": "안녕하세요. 3년 장수 끝에 공무원에 합격한 올해는 꼭 나야나입니당",
+      "orderNumber": 0
+    },
+    {
+      "title": "어떤 갓생을 소개해 주시나요?",
+      "content": "장기 수험생분들을 위해 건강한 수험생활 하는 법.",
+      "orderNumber": 1
+    },
+    {
+      "title": "갓생을 살게된 계기가 무엇인가요?",
+      "content": "저는 대학을 졸업하고 직장생활을 하다가 그만두고 공무원 시험준비를 시작했어요. 노베이스에 주변 친구들도 이미 직장인들이라서 막막하면서 불안하더라구요.\n      1년차 처음 도전한 시험에서 떨어지고 슬럼프가 왔어요. 이러다 완전 루저 인생이 되버리면 어쪄지? 스트레스로 불면에 시달리게 되면서 건강한 수험생활을 시작하게 되었어요.",
+      "orderNumber": 2
+    },
+    {
+      "title": "갓생을 산 방법을 소개해주세요.",
+      "content": "시험공부를 하면서 불안감은 상존할 수 밖에 없어요. 그래서 불안의 원인을 생각해 보았습니다. 공부를 열심히 했는데 점수가 안나오는것에서 오는 불안인지, 아니면 그저 환경이나 타인에게 영향을 받은 불안인지 정리할 필요가 있어요 내 불안을 글로 정리하다보면 생각보다 별거 아닌것을 불안해 하고 있었구나라고 생각이 들어요.\n      추가로 스트레스를 해소하는데 규칙적인 생활과 운동이 필요합니다. 저는 하루 10시간 이상 공부하였고 하루 1시간 이상 운동했습니다. 운동을 하고 샤워를 하는것만으로도 움추려있던 몸과 마음이 펴지더라구요. 그리고 꼭 일주일에 하루는 쉬었어요.",
+      "orderNumber": 3
+    },
+    {
+      "title": "어떤 사람에게 갓생 투두를 추천하나요?",
+      "content": "불안감을 해소 하고 싶은 장기 수험생",
+      "orderNumber": 3
+    },
+    {
+      "title": "갓생을 시작할 분들에게 응원한마디해주세요.",
+      "content": "끝없이 밀려오는 불안감 때문에 3년이란 긴 수험 생활에서 계속해서 포기하고 싶었어요. 하지만 끝까지 포기하지 않고 규칙적인 생활을 한것이 저의 합격의 이유라 생각해요.",
+      "orderNumber": 4
+    }
+  ],
+  "categoryName": "마인드셋",
+  "categoryCode": "MINDFULNESS",
+  "mindsets": [
+    {
+      "content": "우울은 수용성이라 물에 씻겨나간다는 말 너무 좋다. 샤워하고 하면 정멀 묘한 힘이 생겨."
+    }
+  ],
+  "todos": [
+    {
+      "title": "불안 정리해보기",
+      "type": "TASK",
+      "depth": 1,
+      "orderNumber": 0,
+      "period": 1,
+      "repetitionType": "NONE",
+      "repetitionParams": null,
+      "notification": "0900"
+    },
+    {
+      "title": "1시간 이상 운동하기",
+      "type": "TASK",
+      "depth": 1,
+      "orderNumber": 1,
+      "period": 90,
+      "repetitionType": "WEEK",
+      "repetitionParams": [
+        "월",
+        "화",
+        "수",
+        "목",
+        "금"
+      ],
+      "notification": "0900"
+    },
+    {
+      "title": "매일 아침 샤워하기",
+      "type": "TASK",
+      "depth": 1,
+      "orderNumber": 2,
+      "period": 90,
+      "repetitionType": "DAY",
+      "repetitionParams": null,
+      "notification": "0900"
+    }
+  ]
+}
