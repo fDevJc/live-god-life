@@ -40,4 +40,6 @@ include 'api-modules:feed222-api'
 findProject(':api-modules:feed222-api')?.name = 'feed222-api'
 include 'api-modules:feed-api'
 findProject(':api-modules:feed-api')?.name = 'feed-api'
+include 'domain-modules:feed-domain'
+findProject(':domain-modules:feed-domain')?.name = 'feed-domain'
 

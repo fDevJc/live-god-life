@@ -8,14 +8,9 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.godlife.feedservice.api.request.CreateFeedRequest;
 import com.godlife.feedservice.client.UserServiceClient;
 import com.godlife.feedservice.client.response.BookmarkResponse;
 import com.godlife.feedservice.client.response.UserResponse;
-import com.godlife.feedservice.domain.Content;
-import com.godlife.feedservice.domain.Feed;
-import com.godlife.feedservice.domain.Mindset;
-import com.godlife.feedservice.domain.Todos;
 import com.godlife.feedservice.dto.FeedMindsetsTodosDto;
 import com.godlife.feedservice.dto.FeedsDto;
 import com.godlife.feedservice.exception.NoSuchBookmarkException;
@@ -104,23 +99,23 @@ public class FeedService {
 				.stream()
 				.filter(bookmarkDto -> bookmarkDto.getFeedId().equals(feedId))
 				.findAny()
-				.orElseThrow(()-> new NoSuchBookmarkException(feedId))
+				.orElseThrow(() -> new NoSuchBookmarkException(feedId))
 				.isBookmarkStatus());
 		return feedMindsetsTodosDto;
 	}
 
-	@Transactional
-	public void createFeed(CreateFeedRequest feedDto) {
-
-		Feed feed = feedDto.createFeedEntity();
-		List<Content> contents = feedDto.createContentsEntity(feed);
-		List<Mindset> mindsets = feedDto.createMindsetsEntity(feed);
-		Todos todos = new Todos(feedDto.createTodosEntity(feed));
-
-		feed.registerTodosInfo(todos);
-
-		contentRepository.saveAll(contents);
-		mindsetRepository.saveAll(mindsets);
-		todoRepository.saveAll(todos.get());
-	}
+	// @Transactional
+	// public void createFeed(CreateFeedRequest feedDto) {
+	//
+	// 	Feed feed = feedDto.createFeedEntity();
+	// 	List<Content> contents = feedDto.createContentsEntity(feed);
+	// 	List<Mindset> mindsets = feedDto.createMindsetsEntity(feed);
+	// 	Todos todos = new Todos(feedDto.createTodosEntity(feed));
+	//
+	// 	feed.registerTodosInfo(todos);
+	//
+	// 	contentRepository.saveAll(contents);
+	// 	mindsetRepository.saveAll(mindsets);
+	// 	todoRepository.saveAll(todos.get());
+	// }
 }
