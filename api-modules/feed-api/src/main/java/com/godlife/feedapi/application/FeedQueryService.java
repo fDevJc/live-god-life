@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.godlife.feedapi.client.UserServiceClient;
+import com.godlife.feedapi.client.UserClientService;
 import com.godlife.feedapi.client.response.BookmarkResponse;
 import com.godlife.feedapi.client.response.UserResponse;
 import com.godlife.feeddomain.dto.FeedMindsetsTodosDto;
@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class FeedQueryService {
 	private final FeedService feedService;
-	private final UserServiceClient userServiceClient;
+	private final UserClientService userClientService;
 
 	public List<FeedsDto> getFeeds(Pageable page, Long userId, String category, List<Long> feedIds) {
 		List<FeedsDto> feedsDtos = feedService.getFeeds(page, userId, category, feedIds);
@@ -51,7 +51,7 @@ public class FeedQueryService {
 
 	private List<UserResponse.UserDto> getUsersInfoUsingAPI(String ids) {
 		try {
-			return userServiceClient.getUsers(ids).getData();
+			return userClientService.getUsers(ids).getData();
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return List.of();
@@ -67,7 +67,7 @@ public class FeedQueryService {
 
 	private List<BookmarkResponse.BookmarkDto> getBookmarksInfoUsingAPI(Long userId, String ids) {
 		try {
-			return userServiceClient.getBookmarks(userId, ids).getData();
+			return userClientService.getBookmarks(userId, ids).getData();
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return List.of();

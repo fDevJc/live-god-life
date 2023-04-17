@@ -27,7 +27,6 @@ import com.godlife.feedapi.presentation.dto.request.CreateFeedRequest;
 import com.godlife.feedapi.presentation.dto.response.ApiResponse;
 import com.godlife.feeddomain.dto.FeedMindsetsTodosDto;
 import com.godlife.feeddomain.dto.FeedsDto;
-import com.godlife.feeddomain.service.FeedService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +35,6 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 @RestController
 public class FeedController {
-	private final FeedService feedService;
 	private final FeedQueryService feedQueryService;
 	private final FeedCommandService feedCommandService;
 
@@ -73,6 +71,7 @@ public class FeedController {
 		return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(feedDetail));
 	}
 
+	//TODO 리팩토링 대상
 	@GetMapping("/feeds/images/{imageName}")
 	public ResponseEntity<Resource> getImage(
 		@PathVariable(value = "imageName") String imageName) {

@@ -1,4 +1,4 @@
-package com.godlife.feedapi.presentation;
+package com.godlife.feedapi.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

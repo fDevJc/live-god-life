@@ -18,10 +18,11 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.godlife.feedapi.application.FeedCommandService;
 import com.godlife.feedapi.application.FeedQueryService;
+import com.godlife.feedapi.client.UserClientService;
+import com.godlife.feedapi.client.response.BookmarkResponse;
+import com.godlife.feedapi.client.response.UserResponse;
 import com.godlife.feedapi.presentation.FeedController;
-import com.godlife.feeddomain.client.UserServiceClient;
-import com.godlife.feeddomain.client.response.BookmarkResponse;
-import com.godlife.feeddomain.client.response.UserResponse;
+
 import com.godlife.feeddomain.dto.FeedsDto;
 import com.godlife.feeddomain.service.FeedService;
 
@@ -31,7 +32,7 @@ public class FeedControllerTest {
 	private MockMvc mockMvc;
 
 	@MockBean
-	UserServiceClient userServiceClient;
+	UserClientService userClientService;
 
 	@MockBean
 	FeedService feedService;
@@ -64,13 +65,13 @@ public class FeedControllerTest {
 	@DisplayName("모든 피드내용을 조회한다_카테고리 커리어 CAREER")
 	void getFeedsByCategory() throws Exception {
 		//when
-		when(userServiceClient.getUsers(any(String.class)))
+		when(userClientService.getUsers(any(String.class)))
 			.thenReturn(new UserResponse("success",
 				List.of(new UserResponse.UserDto(1L, "yang", "image")),
 				200,
 				"message"));
 
-		when(userServiceClient.getBookmarks(any(Long.class), any(String.class)))
+		when(userClientService.getBookmarks(any(Long.class), any(String.class)))
 			.thenReturn(new BookmarkResponse("success",
 				List.of(new BookmarkResponse.BookmarkDto(1L, false)),
 				200,
@@ -90,13 +91,13 @@ public class FeedControllerTest {
 	@DisplayName("모든 피드내용을 조회한다_파라미터 아이디배열에따라")
 	void getFeedByIds() throws Exception {
 		//when
-		when(userServiceClient.getUsers(any(String.class)))
+		when(userClientService.getUsers(any(String.class)))
 			.thenReturn(new UserResponse("success",
 				List.of(new UserResponse.UserDto(1L, "yang", "image")),
 				200,
 				"message"));
 
-		when(userServiceClient.getBookmarks(any(Long.class), any(String.class)))
+		when(userClientService.getBookmarks(any(Long.class), any(String.class)))
 			.thenReturn(new BookmarkResponse("success",
 				List.of(new BookmarkResponse.BookmarkDto(1L, false)),
 				200,

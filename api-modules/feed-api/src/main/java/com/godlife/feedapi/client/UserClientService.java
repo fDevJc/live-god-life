@@ -9,7 +9,7 @@ import com.godlife.feedapi.client.response.BookmarkResponse;
 import com.godlife.feedapi.client.response.UserResponse;
 
 @FeignClient(name = "user-service")
-public interface UserServiceClient {
+public interface UserClientService {
 	@GetMapping("/users")
 	UserResponse getUsers(@RequestParam String ids);
 
