@@ -23,7 +23,7 @@ public class FeedQueryService {
 	private final UserServiceClient userServiceClient;
 
 	public List<FeedsDto> getFeeds(Pageable page, Long userId, String category, List<Long> feedIds) {
-		List<FeedsDto> feedsDtos = feedService.getFeeds1(page, category, feedIds);
+		List<FeedsDto> feedsDtos = feedService.getFeeds(page, category, feedIds);
 		feedDtosSetUserInfo(feedsDtos, getUsersInfoUsingAPI(getUserIdsToString(feedsDtos)));
 		feedDtosSetBookmarkInfo(feedsDtos, getBookmarksInfoUsingAPI(userId, getFeedIdsToString(feedsDtos)));
 		return feedsDtos;
