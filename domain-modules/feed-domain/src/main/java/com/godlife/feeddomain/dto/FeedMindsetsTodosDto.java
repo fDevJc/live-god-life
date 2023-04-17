@@ -74,6 +74,8 @@ public class FeedMindsetsTodosDto {
 		this.bookMarkStatus = bookMarkStatus;
 	}
 
+
+	//TODO 리팩토링 대상
 	// public void setUserInfo(List<UserResponse.UserDto> user) {
 	// 	this.user = user.get(0);
 	// }

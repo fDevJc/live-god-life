@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import com.godlife.feedapi.client.UserServiceClient;
 import com.godlife.feedapi.client.response.BookmarkResponse;
 import com.godlife.feedapi.client.response.UserResponse;
+import com.godlife.feeddomain.dto.FeedMindsetsTodosDto;
 import com.godlife.feeddomain.dto.FeedsDto;
+import com.godlife.feeddomain.exception.NoSuchBookmarkException;
 import com.godlife.feeddomain.service.FeedService;
 
 import lombok.RequiredArgsConstructor;
@@ -76,5 +78,19 @@ public class FeedQueryService {
 		return feeds.stream()
 			.map(feed -> feed.getFeedId().toString())
 			.collect(Collectors.joining(","));
+	}
+
+	public FeedMindsetsTodosDto getFeedDetail(Long userId, Long feedId) {
+		FeedMindsetsTodosDto feedMindsetsTodosDto = feedService.getFeedDetail(userId, feedId);
+		// TODO dto 리팩토링 대상
+		// feedMindsetsTodosDto.setUserInfo(getUsersInfoUsingAPI(feedMindsetsTodosDto.getUserId().toString()));
+		feedMindsetsTodosDto.setBookmarkStatus(
+			getBookmarksInfoUsingAPI(userId, feedId.toString())
+				.stream()
+				.filter(bookmarkDto -> bookmarkDto.getFeedId().equals(feedId))
+				.findAny()
+				.orElseThrow(() -> new NoSuchBookmarkException(feedId))
+				.isBookmarkStatus());
+		return feedMindsetsTodosDto;
 	}
 }

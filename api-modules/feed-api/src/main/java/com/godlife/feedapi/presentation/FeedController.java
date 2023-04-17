@@ -25,6 +25,7 @@ import com.godlife.feedapi.application.FeedCommandService;
 import com.godlife.feedapi.application.FeedQueryService;
 import com.godlife.feedapi.presentation.dto.request.CreateFeedRequest;
 import com.godlife.feedapi.presentation.dto.response.ApiResponse;
+import com.godlife.feeddomain.dto.FeedMindsetsTodosDto;
 import com.godlife.feeddomain.dto.FeedsDto;
 import com.godlife.feeddomain.service.FeedService;
 
@@ -67,7 +68,9 @@ public class FeedController {
 		@RequestHeader(USER_ID_HEADER) Long userId,
 		@PathVariable(value = "feedId") Long feedId) {
 
-		return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(feedService.getFeedDetail(userId, feedId)));
+		FeedMindsetsTodosDto feedDetail = feedQueryService.getFeedDetail(userId, feedId);
+
+		return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(feedDetail));
 	}
 
 	@GetMapping("/feeds/images/{imageName}")
