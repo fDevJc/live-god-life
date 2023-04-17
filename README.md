@@ -9,8 +9,13 @@
 - api-core
  
 ### domain-modules
-> domain 정보 처리 영역. domain, service, repository  
+> domain 비즈니스 처리 영역.
 - xxx-domain
+  - service:
+  - dto:
+  - domain:
+  - repository:
+  
   
 ### cloud-modules
 > cloud 서버와 관련된 외부 기능.
