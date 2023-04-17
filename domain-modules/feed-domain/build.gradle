@@ -10,40 +10,7 @@ plugins {
     id 'java'
     /* querydsl 관련 플러그인*/
     id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
-    /* asciidoc파일을 변환해주고, Build폴더에 복사해주는 플러그인 */
-    id "org.asciidoctor.jvm.convert" version "3.3.2"
 }
-
-/* =============== BEGIN Spring Rest Docs SETTING ===============*/
-ext {
-    snippetsDir = file('build/generated-snippets')
-    docsDir = file('src/docs/asciidoc')
-}
-asciidoctor {
-    configurations 'asciidoctorExtensions'
-    inputs.dir snippetsDir
-    dependsOn test
-    attributes 'docsDir': docsDir
-}
-bootJar {
-    dependsOn asciidoctor
-    copy {
-        from "${asciidoctor.outputDir}"
-        into 'src/main/resources/static/docs'
-    }
-}
-test {
-    outputs.dir snippetsDir
-    useJUnitPlatform()
-}
-
-configurations {
-    asciidoctorExtensions
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-/* =============== END Spring Rest Docs SETTING ===============*/
 
 group = 'com.godlife'
 version = '0.0.1-SNAPSHOT'
@@ -61,6 +28,14 @@ repositories {
 
 ext {
     set('springCloudVersion', "2021.0.4")
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
 }
 
 dependencies {
@@ -84,9 +59,6 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-    asciidoctorExtensions 'org.springframework.restdocs:spring-restdocs-asciidoctor'
-    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 }
 
 dependencyManagement {

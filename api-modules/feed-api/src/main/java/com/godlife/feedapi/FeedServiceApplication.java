@@ -5,8 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableFeignClients
-// @EnableJpaAuditing
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.godlife.feedapi", "com.godlife.feeddomain"})
 public class FeedServiceApplication {
 
 	public static void main(String[] args) {

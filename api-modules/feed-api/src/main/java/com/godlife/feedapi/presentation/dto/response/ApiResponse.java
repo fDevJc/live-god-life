@@ -1,4 +1,4 @@
-package com.godlife.feedapi.api.response;
+package com.godlife.feedapi.presentation.dto.response;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

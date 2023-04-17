@@ -1,5 +1,6 @@
-package com.godlife.feedapi.api;
+package com.godlife.feedapi.unit.presentation;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
@@ -15,14 +16,15 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.godlife.feedapi.presentation.FeedController;
 import com.godlife.feeddomain.client.UserServiceClient;
 import com.godlife.feeddomain.client.response.BookmarkResponse;
 import com.godlife.feeddomain.client.response.UserResponse;
 import com.godlife.feeddomain.dto.FeedsDto;
 import com.godlife.feeddomain.service.FeedService;
 
-@WebMvcTest({FeedController.class})
-class FeedControllerTest {
+@WebMvcTest(FeedController.class)
+public class FeedControllerTest {
 	@Autowired
 	private MockMvc mockMvc;
 
