@@ -3,15 +3,15 @@ package com.godlife.feedapi.api.request;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.godlife.feedapi.domain.Content;
-import com.godlife.feedapi.domain.Feed;
-import com.godlife.feedapi.domain.Mindset;
-import com.godlife.feedapi.domain.Todo;
-import com.godlife.feedapi.domain.TodoFolder;
-import com.godlife.feedapi.domain.TodoTask;
-import com.godlife.feedapi.domain.enums.Category;
-import com.godlife.feedapi.domain.enums.RepetitionType;
-import com.godlife.feedapi.domain.enums.TodoType;
+import com.godlife.feeddomain.domain.Content;
+import com.godlife.feeddomain.domain.Feed;
+import com.godlife.feeddomain.domain.Mindset;
+import com.godlife.feeddomain.domain.Todo;
+import com.godlife.feeddomain.domain.TodoFolder;
+import com.godlife.feeddomain.domain.TodoTask;
+import com.godlife.feeddomain.domain.enums.Category;
+import com.godlife.feeddomain.domain.enums.RepetitionType;
+import com.godlife.feeddomain.domain.enums.TodoType;
 
 import lombok.Getter;
 

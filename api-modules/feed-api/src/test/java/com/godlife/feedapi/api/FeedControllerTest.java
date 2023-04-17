@@ -15,11 +15,11 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.godlife.feedapi.client.UserServiceClient;
-import com.godlife.feedapi.client.response.BookmarkResponse;
-import com.godlife.feedapi.client.response.UserResponse;
-import com.godlife.feedapi.dto.FeedsDto;
-import com.godlife.feedapi.service.FeedService;
+import com.godlife.feeddomain.client.UserServiceClient;
+import com.godlife.feeddomain.client.response.BookmarkResponse;
+import com.godlife.feeddomain.client.response.UserResponse;
+import com.godlife.feeddomain.dto.FeedsDto;
+import com.godlife.feeddomain.service.FeedService;
 
 @WebMvcTest({FeedController.class})
 class FeedControllerTest {

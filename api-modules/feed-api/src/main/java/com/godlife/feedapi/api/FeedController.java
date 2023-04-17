@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.godlife.feedapi.api.response.ApiResponse;
 import com.godlife.feedapi.api.response.ResponseCode;
-import com.godlife.feedapi.exception.NoSuchFeedException;
-import com.godlife.feedapi.service.FeedService;
+import com.godlife.feeddomain.exception.NoSuchFeedException;
+import com.godlife.feeddomain.service.FeedService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
