@@ -1,10 +1,5 @@
-package com.godlife.feedapi.presentation.response;
+package com.godlife.apicore.dto.response;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
 public class ApiResponse {
 	private String status;
 	private String message;

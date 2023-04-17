@@ -57,6 +57,7 @@ ext {
 
 dependencies {
     implementation project(':domain-modules:feed-domain')
+    implementation project(':api-modules:api-core')
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'

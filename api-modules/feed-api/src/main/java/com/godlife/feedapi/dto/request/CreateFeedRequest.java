@@ -1,4 +1,4 @@
-package com.godlife.feedapi.presentation.request;
+package com.godlife.feedapi.dto.request;
 
 import java.util.List;
 import java.util.stream.Collectors;

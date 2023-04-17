@@ -1,8 +1,5 @@
-package com.godlife.feedapi.presentation.response;
+package com.godlife.apicore.dto.response;
 
-import lombok.Getter;
-
-@Getter
 public enum ResponseCode {
 	SUCCESS("success"), ERROR("error");
 
@@ -10,5 +7,9 @@ public enum ResponseCode {
 
 	ResponseCode(String lowerName) {
 		this.lowerName = lowerName;
+	}
+
+	public String getLowerName() {
+		return lowerName;
 	}
 }

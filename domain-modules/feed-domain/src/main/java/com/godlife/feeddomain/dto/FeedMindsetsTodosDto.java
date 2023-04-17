@@ -2,7 +2,7 @@ package com.godlife.feeddomain.dto;
 
 import java.util.List;
 
-import com.godlife.feeddomain.client.response.UserResponse;
+// import com.godlife.feeddomain.client.response.UserResponse;
 import com.godlife.feeddomain.domain.enums.Category;
 import com.querydsl.core.annotations.QueryProjection;
 
@@ -19,7 +19,7 @@ public class FeedMindsetsTodosDto {
 	//===사용자정보===
 	// @JsonIgnore
 	private Long userId;
-	private UserResponse.UserDto user;
+	// private UserResponse.UserDto user;
 
 	private Boolean bookMarkStatus;
 
@@ -70,7 +70,7 @@ public class FeedMindsetsTodosDto {
 		this.bookMarkStatus = bookMarkStatus;
 	}
 
-	public void setUserInfo(List<UserResponse.UserDto> user) {
-		this.user = user.get(0);
-	}
+	// public void setUserInfo(List<UserResponse.UserDto> user) {
+	// 	this.user = user.get(0);
+	// }
 }

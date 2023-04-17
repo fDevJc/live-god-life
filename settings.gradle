@@ -22,4 +22,6 @@ include 'domain-modules:feed-domain'
 findProject(':domain-modules:feed-domain')?.name = 'feed-domain'
 include 'domain-modules:goal-domain'
 findProject(':domain-modules:goal-domain')?.name = 'goal-domain'
+include 'api-modules:api-core'
+findProject(':api-modules:api-core')?.name = 'api-core'
 
