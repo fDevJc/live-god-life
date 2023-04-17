@@ -1,19 +1,14 @@
 package com.godlife.feeddomain.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.godlife.feeddomain.client.UserServiceClient;
-import com.godlife.feeddomain.client.response.BookmarkResponse;
-import com.godlife.feeddomain.client.response.UserResponse;
 import com.godlife.feeddomain.dto.FeedMindsetsTodosDto;
 import com.godlife.feeddomain.dto.FeedsDto;
-import com.godlife.feeddomain.exception.NoSuchBookmarkException;
 import com.godlife.feeddomain.repository.ContentRepository;
 import com.godlife.feeddomain.repository.FeedRepository;
 import com.godlife.feeddomain.repository.MindsetRepository;
@@ -37,8 +32,7 @@ public class FeedService {
 	public List<FeedsDto> getFeeds(Pageable page, Long userId, @Nullable String category, @Nullable List<Long> feedIds) {
 
 		List<FeedsDto> feedsDtos = feedRepository.findAllByCategoryAndFeedIds(page, category, feedIds);
-		// feedDtosSetUserInfo(feedsDtos, getUsersInfoUsingAPI(getUserIdsToString(feedsDtos)));
-		// feedDtosSetBookmarkInfo(feedsDtos, getBookmarksInfoUsingAPI(userId, getFeedIdsToString(feedsDtos)));
+
 		return feedsDtos;
 	}
 	//

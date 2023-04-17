@@ -1,11 +1,13 @@
 package com.godlife.feeddomain.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.godlife.feeddomain.client.response.UserResponse;
+
 import com.querydsl.core.annotations.QueryProjection;
 
 import lombok.Getter;
 
+
+//TODO dto 정리
 @Getter
 public class FeedsDto {
 	private Long feedId;
@@ -27,7 +29,7 @@ public class FeedsDto {
 	//===사용자정보===
 	@JsonIgnore
 	private Long userId;
-	private UserResponse.UserDto user;
+	// private UserResponse.UserDto user;
 
 	@QueryProjection
 	public FeedsDto(Long feedId, String title, String category, int viewCount, int pickCount, int todoCount, int todoScheduleDay, String image, Long userId) {
@@ -42,9 +44,9 @@ public class FeedsDto {
 		this.userId = userId;
 	}
 
-	public void registerUser(UserResponse.UserDto userDto) {
-		this.user = userDto;
-	}
+	// public void registerUser(UserResponse.UserDto userDto) {
+	// 	this.user = userDto;
+	// }
 
 	public void registerBookmark(boolean bookmarkStatus) {
 		this.bookMarkStatus = bookmarkStatus;

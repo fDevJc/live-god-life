@@ -1,4 +1,4 @@
-package com.godlife.feeddomain.client.response;
+package com.godlife.feedapi.client.response;
 
 import java.util.List;
 

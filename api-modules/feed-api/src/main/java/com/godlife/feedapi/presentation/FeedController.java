@@ -57,8 +57,7 @@ public class FeedController {
 		@RequestParam(value = "category", required = false) String category,
 		@RequestParam(value = "ids", required = false) List<Long> feedIds) {
 
-		// List<FeedsDto> feeds = feedQueryService.getFeeds(page, userId, category, feedIds);
-		List<FeedsDto> feeds = feedService.getFeeds(page, userId, category, feedIds);
+		List<FeedsDto> feeds = feedQueryService.getFeeds(page, userId, category, feedIds);
 
 		return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(feeds));
 	}
