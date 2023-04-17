@@ -1,0 +1,91 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.10'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'java'
+    /* asciidoc파일을 변환해주고, Build폴더에 복사해주는 플러그인 */
+    id "org.asciidoctor.jvm.convert" version "3.3.2"
+}
+
+/* =============== BEGIN Spring Rest Docs SETTING ===============*/
+ext {
+    snippetsDir = file('build/generated-snippets')
+    docsDir = file('src/docs/asciidoc')
+}
+asciidoctor {
+    configurations 'asciidoctorExtensions'
+    inputs.dir snippetsDir
+    dependsOn test
+    attributes 'docsDir': docsDir
+}
+bootJar {
+    dependsOn asciidoctor
+    copy {
+        from "${asciidoctor.outputDir}"
+        into 'src/main/resources/static/docs'
+    }
+}
+test {
+    outputs.dir snippetsDir
+    useJUnitPlatform()
+}
+
+configurations {
+    asciidoctorExtensions
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+/* =============== END Spring Rest Docs SETTING ===============*/
+
+group = 'com.godlife'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    set('springCloudVersion', "2021.0.4")
+}
+
+dependencies {
+    implementation project(':domain-modules:feed-domain')
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
+    implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'com.h2database:h2'
+    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    asciidoctorExtensions 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

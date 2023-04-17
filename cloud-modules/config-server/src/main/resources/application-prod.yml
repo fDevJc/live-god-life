@@ -1,0 +1,65 @@
+server:
+  port: 8888
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:live-god-life/god-life-private-config.git
+          ignore-local-ssh-settings: true
+          host-key-algorithm: ssh-rsa
+          host-key: AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
+          private-key: |
+            -----BEGIN RSA PRIVATE KEY-----
+            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
+            -----END RSA PRIVATE KEY-----
+  output.ansi.enabled: always

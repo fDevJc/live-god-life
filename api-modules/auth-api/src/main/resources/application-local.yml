@@ -1,0 +1,20 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/onezo
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${eureka.instance.instance-id:${random.value}
+    prefer-ip-address: true

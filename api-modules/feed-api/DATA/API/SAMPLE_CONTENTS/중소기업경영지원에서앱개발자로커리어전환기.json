@@ -1,0 +1,114 @@
+{
+  "userId": 1,
+  "title": "중소기업 경영지원에서 앱개발자로 커리어 전환기",
+  "image": "http://server/feeds/image1.jpg",
+  "contents": [
+    {
+      "title": "NONE",
+      "content": "안녕하세요, 5년차 엔지니어 당돌한얼음이요? 라고 합니다.\n      저는 대학 졸업 후 중소기업에 경영지원으로 커리어를 시작했습니다.\n      매일 똑같은 일에 반복에 회의감을 느끼고 있었고 월급은 210-220만원 정도에 더이상 발전할 수 없는 직무라 느꼈을때 매우 절망적이였던 것 같아요. 2년정도 하다보니까 이 직무를 후회없이 한번 떠나볼 수 있지 않을까 라는 생각이 들었습니다.\n      다른 옵션이 많이 있는 IT 쪽으로 피봇팅을 준비하자는 선택을 했던것 같습니다. 하지만 막상 직무를 찾아보니 개발자 종류가 다양하였고 제가 가장 잘 맞을 거 같은 앱 프론트 엔지니어로 직무를 정하였습니다. 유튜브로 다양한 직무 소개 영상을 보시는것을 추천 드립니다.\n      직무를 정한뒤 1년 동안 시간을 투자해 유튜브를 찾아보며 퇴근 후, 주말등 시간이 남을때마다 공부하였습니다.\n      저는 HTML/CSS -> javaScript -> js library -> Backend(Node.js, express)순으로 공부하였습니다. 실습위주(클론코딩)을 하며 개념정리 및 학습하였습니다.\n      제가 커리어를 전환하며 주변에 걱정과 우려도 많았지만 사는건 레벨업이 아닌 스펙트럼을 넓히는 거란 얘길 들었습니다. 어떤 말보다 용기가 되었습니다. 이글을 읽는 여러분께서도 많은 도움이 되었으면 좋겠습니다.",
+      "orderNumber": 0
+    }
+  ],
+  "categoryName": "커리어",
+  "categoryCode": "CAREER",
+  "mindsets": [
+    {
+      "content": "“사는건 레벨업이 아닌 스펙트럼을 넓히는 거란 얘길 들었다. 어떤 말보다 용기가 된다.”."
+    }
+  ],
+  "todos": [
+    {
+      "title": "백엔드 개발자 직무 소개 영상 시청",
+      "type": "TASK",
+      "depth": 1,
+      "orderNumber": 0,
+      "period": 7,
+      "repetitionType": "NONE",
+      "repetitionParams": null,
+      "notification": "0900"
+    },
+    {
+      "title": "개발 공부",
+      "type": "FOLDER",
+      "depth": 1,
+      "orderNumber": 1,
+      "period": 90,
+      "todos": [
+        {
+          "title": "HTML/CSS",
+          "type": "TASK",
+          "depth": 2,
+          "orderNumber": 0,
+          "period": 90,
+          "repetitionType": "DAY",
+          "repetitionParams": null,
+          "notification": "0900"
+        },
+        {
+          "title": "javaScript",
+          "type": "TASK",
+          "depth": 2,
+          "orderNumber": 1,
+          "period": 90,
+          "repetitionType": "DAY",
+          "repetitionParams": null,
+          "notification": "0900"
+        },
+        {
+          "title": "js 라이브러리 공부",
+          "type": "TASK",
+          "depth": 2,
+          "orderNumber": 2,
+          "period": 90,
+          "repetitionType": "DAY",
+          "repetitionParams": null,
+          "notification": "0900"
+        },
+        {
+          "title": "Node.js, express공부",
+          "type": "TASK",
+          "depth": 2,
+          "orderNumber": 3,
+          "period": 90,
+          "repetitionType": "DAY",
+          "repetitionParams": null,
+          "notification": "0900"
+        }
+      ]
+    },
+    {
+      "title": "개발 프로젝트 수행 해보기",
+      "type": "TASK",
+      "depth": 1,
+      "orderNumber": 4,
+      "period": 90,
+      "repetitionType": "NONE",
+      "repetitionParams": null,
+      "notification": "0900"
+    },
+    {
+      "title": "포트폴리오 만들기",
+      "type": "TASK",
+      "depth": 1,
+      "orderNumber": 2,
+      "period": 90,
+      "repetitionType": "NONE",
+      "repetitionParams": null,
+      "notification": "0900"
+    },
+    {
+      "title": "코딩테스트 준비",
+      "type": "TASK",
+      "depth": 1,
+      "orderNumber": 3,
+      "period": 90,
+      "repetitionType": "WEEK",
+      "repetitionParams": [
+        "월",
+        "수",
+        "금"
+      ],
+      "notification": "0900"
+    }
+  ]
+}
