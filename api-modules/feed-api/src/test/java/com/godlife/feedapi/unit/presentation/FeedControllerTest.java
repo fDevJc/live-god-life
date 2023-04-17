@@ -46,19 +46,9 @@ public class FeedControllerTest {
 	@DisplayName("모든 피드내용을 조회한다_카테고리 전체일경우")
 	void getFeedAll() throws Exception {
 		//when
-		when(feedService.getFeeds(any(), any(), any(), any()))
+		when(feedQueryService.getFeeds(any(), any(), any(), any()))
 			.thenReturn(List.of(new FeedsDto(1L, "타이틀", "카테고리", 0, 0, 0, 0, "image", 1L)));
-		when(userServiceClient.getUsers(any(String.class)))
-			.thenReturn(new UserResponse("success",
-				List.of(new UserResponse.UserDto(1L, "yang", "image")),
-				200,
-				"message"));
 
-		when(userServiceClient.getBookmarks(any(Long.class), any(String.class)))
-			.thenReturn(new BookmarkResponse("success",
-				List.of(new BookmarkResponse.BookmarkDto(1L, false)),
-				200,
-				"message"));
 		//then
 		mockMvc.perform(get("/feeds")
 				.header("x-user", "1")
