@@ -16,6 +16,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.godlife.feedapi.application.FeedCommandService;
+import com.godlife.feedapi.application.FeedQueryService;
 import com.godlife.feedapi.presentation.FeedController;
 import com.godlife.feeddomain.client.UserServiceClient;
 import com.godlife.feeddomain.client.response.BookmarkResponse;
@@ -23,7 +25,7 @@ import com.godlife.feeddomain.client.response.UserResponse;
 import com.godlife.feeddomain.dto.FeedsDto;
 import com.godlife.feeddomain.service.FeedService;
 
-@WebMvcTest(FeedController.class)
+@WebMvcTest({FeedController.class})
 public class FeedControllerTest {
 	@Autowired
 	private MockMvc mockMvc;
@@ -33,6 +35,12 @@ public class FeedControllerTest {
 
 	@MockBean
 	FeedService feedService;
+
+	@MockBean
+	FeedQueryService feedQueryService;
+
+	@MockBean
+	FeedCommandService feedCommandService;
 
 	@Test
 	@DisplayName("모든 피드내용을 조회한다_카테고리 전체일경우")

@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-// import com.godlife.feedapi.application.FeedCommandService;
-// import com.godlife.feedapi.application.FeedQueryService;
+import com.godlife.feedapi.application.FeedCommandService;
+import com.godlife.feedapi.application.FeedQueryService;
 import com.godlife.feedapi.presentation.dto.request.CreateFeedRequest;
 import com.godlife.feedapi.presentation.dto.response.ApiResponse;
 import com.godlife.feeddomain.dto.FeedsDto;
@@ -36,8 +36,8 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 public class FeedController {
 	private final FeedService feedService;
-	// private final FeedQueryService feedQueryService;
-	// private final FeedCommandService feedCommandService;
+	private final FeedQueryService feedQueryService;
+	private final FeedCommandService feedCommandService;
 
 	private static final String USER_ID_HEADER = "x-user";
 	private static final int DEFAULT_PAGE = 30;
