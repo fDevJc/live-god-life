@@ -16,18 +16,18 @@ import javax.persistence.EntityManager;
 
 import org.springframework.data.domain.Pageable;
 
-import com.godlife.feeddomain.domain.enums.Category;
+import com.godlife.feeddomain.enums.Category;
 import com.godlife.feeddomain.dto.ContentDto;
+import com.godlife.feeddomain.dto.FeedDto;
 import com.godlife.feeddomain.dto.FeedMindsetsTodosDto;
-import com.godlife.feeddomain.dto.FeedsDto;
 import com.godlife.feeddomain.dto.MindsetDto;
 import com.godlife.feeddomain.dto.QContentDto;
+import com.godlife.feeddomain.dto.QFeedDto;
 import com.godlife.feeddomain.dto.QFeedMindsetsTodosDto;
-import com.godlife.feeddomain.dto.QFeedsDto;
 import com.godlife.feeddomain.dto.QMindsetDto;
 import com.godlife.feeddomain.dto.QTodoDto;
 import com.godlife.feeddomain.dto.TodoDto;
-import com.godlife.feeddomain.exception.NoSuchFeedException;
+import com.godlife.feeddomain.exception.FeedNotFoundException;
 import com.godlife.feeddomain.repository.FeedRepositoryCustom;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -42,10 +42,10 @@ public class FeedRepositoryCustomImpl implements FeedRepositoryCustom {
 	}
 
 	@Override
-	public List<FeedsDto> findAllByCategoryAndFeedIds(Pageable page, String category, List<Long> feedIds) {
+	public List<FeedDto> findAllByCategoryAndFeedIds(Pageable page, String category, List<Long> feedIds) {
 		return queryFactory
 			.select(
-				new QFeedsDto(
+				new QFeedDto(
 					feed.feedId,
 					feed.title,
 					feed.category.stringValue(),
@@ -66,9 +66,9 @@ public class FeedRepositoryCustomImpl implements FeedRepositoryCustom {
 
 	@Override
 	public FeedMindsetsTodosDto findFeedWithMindsetsAndTodosByFeedId(Long feedId) {
-		updateFeedViewCount(feedId);
+		// updateFeedViewCount(feedId);
 
-		FeedMindsetsTodosDto feedMindsetsTodosDto = findFeedDtoByFeedId(feedId).orElseThrow(() -> new NoSuchFeedException(feedId));
+		FeedMindsetsTodosDto feedMindsetsTodosDto = findFeedDtoByFeedId(feedId).orElseThrow(() -> new FeedNotFoundException(feedId));
 
 		feedMindsetsTodosDto.registerContentDtos(findContentDtosByFeedId(feedId));
 

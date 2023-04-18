@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.Comment;
 
-import com.godlife.feeddomain.domain.enums.Category;
+import com.godlife.feeddomain.enums.Category;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Feed extends BaseEntity{
+public class Feed extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Comment("피드 아이디")
@@ -72,5 +72,9 @@ public class Feed extends BaseEntity{
 
 	private void registerTotalTodoTaskCount(int todoCount) {
 		this.todoCount = todoCount;
+	}
+
+	public void plusViewCount() {
+		this.viewCount++;
 	}
 }

@@ -2,18 +2,18 @@ package com.godlife.feeddomain.dto;
 
 import java.util.List;
 
-// import com.fasterxml.jackson.annotation.JsonIgnore;
-// import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.querydsl.core.annotations.QueryProjection;
 
 import lombok.Getter;
 
 @Getter
-// @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TodoDto {
 	//===투두 공통===
 	private Long todoId;
-	// @JsonIgnore
+	@JsonIgnore
 	private Long parentTodoId;
 	private String type;
 	private String title;

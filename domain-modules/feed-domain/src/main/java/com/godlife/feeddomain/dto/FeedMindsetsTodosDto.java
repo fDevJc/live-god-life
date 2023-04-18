@@ -2,14 +2,18 @@ package com.godlife.feeddomain.dto;
 
 import java.util.List;
 
-import com.godlife.feeddomain.client.response.UserResponse;
-import com.godlife.feeddomain.domain.enums.Category;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.godlife.feeddomain.enums.Category;
 import com.querydsl.core.annotations.QueryProjection;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+//TODO dto 정리
+
 @Getter
-// @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class FeedMindsetsTodosDto {
 	//===피드 정보===
 	private Long feedId;
@@ -17,9 +21,9 @@ public class FeedMindsetsTodosDto {
 	private String title;
 
 	//===사용자정보===
-	// @JsonIgnore
+	@JsonIgnore
 	private Long userId;
-	private UserResponse.UserDto user;
+	private UserDto user;
 
 	private Boolean bookMarkStatus;
 
@@ -70,7 +74,16 @@ public class FeedMindsetsTodosDto {
 		this.bookMarkStatus = bookMarkStatus;
 	}
 
-	public void setUserInfo(List<UserResponse.UserDto> user) {
-		this.user = user.get(0);
+	//TODO 리팩토링 대상
+	public void setUserInfo(UserDto user) {
+		this.user = user;
+	}
+
+	@AllArgsConstructor
+	@Getter
+	public static class UserDto {
+		private Long userId;
+		private String nickname;
+		private String image;
 	}
 }

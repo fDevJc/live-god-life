@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableFeignClients
 @SpringBootApplication(
-	scanBasePackages = {"com.jc.feedapi", "com.jc.feeddomain"}
+	scanBasePackages = {"com.godlife.feedapi", "com.godlife.feeddomain"}
 )
 public class FeedServiceApplication {
 
@@ -15,3 +15,4 @@ public class FeedServiceApplication {
 	}
 
 }
+

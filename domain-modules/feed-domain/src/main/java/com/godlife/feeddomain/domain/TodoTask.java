@@ -13,8 +13,8 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.Comment;
 
-import com.godlife.feeddomain.domain.converter.StringListConverter;
-import com.godlife.feeddomain.domain.enums.RepetitionType;
+import com.godlife.feeddomain.util.converter.StringListConverter;
+import com.godlife.feeddomain.enums.RepetitionType;
 
 import lombok.AccessLevel;
 import lombok.Getter;
