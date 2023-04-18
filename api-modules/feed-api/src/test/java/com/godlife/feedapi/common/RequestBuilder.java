@@ -2,7 +2,7 @@ package com.godlife.feedapi.common;
 
 import java.util.List;
 
-import com.godlife.feedapi.presentation.dto.request.CreateFeedRequest;
+import com.godlife.feedapi.controller.dto.request.CreateFeedRequest;
 import com.godlife.feeddomain.domain.enums.Category;
 import com.godlife.feeddomain.domain.enums.RepetitionType;
 import com.godlife.feeddomain.domain.enums.TodoType;

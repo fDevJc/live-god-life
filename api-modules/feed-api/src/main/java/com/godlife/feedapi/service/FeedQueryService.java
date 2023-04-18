@@ -1,4 +1,4 @@
-package com.godlife.feedapi.application;
+package com.godlife.feedapi.service;
 
 import java.util.List;
 import java.util.stream.Collectors;

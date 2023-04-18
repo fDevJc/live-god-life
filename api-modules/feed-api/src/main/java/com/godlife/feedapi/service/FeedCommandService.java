@@ -1,23 +1,23 @@
-package com.godlife.feedapi.application;
+package com.godlife.feedapi.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.godlife.feedapi.presentation.dto.request.CreateFeedRequest;
+import com.godlife.feedapi.controller.dto.request.CreateFeedRequest;
 import com.godlife.feeddomain.domain.Content;
 import com.godlife.feeddomain.domain.Feed;
 import com.godlife.feeddomain.domain.Mindset;
 import com.godlife.feeddomain.domain.Todos;
-import com.godlife.feeddomain.service.FeedService;
+import com.godlife.feeddomain.service.FeedCreateService;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
 public class FeedCommandService {
-	private final FeedService feedService;
+	private final FeedCreateService feedCreateService;
 
 	@Transactional
 	public void createFeed(CreateFeedRequest feedDto) {
@@ -29,6 +29,6 @@ public class FeedCommandService {
 
 		feed.registerTodosInfo(todos);
 
-		feedService.createFeed(contents, mindsets, todos.get());
+		feedCreateService.createFeed(contents, mindsets, todos.get());
 	}
 }

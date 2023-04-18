@@ -1,4 +1,4 @@
-package com.godlife.feedapi.presentation;
+package com.godlife.feedapi.controller;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,10 +21,10 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.godlife.feedapi.application.FeedCommandService;
-import com.godlife.feedapi.application.FeedQueryService;
-import com.godlife.feedapi.presentation.dto.request.CreateFeedRequest;
-import com.godlife.feedapi.presentation.dto.response.ApiResponse;
+import com.godlife.feedapi.service.FeedCommandService;
+import com.godlife.feedapi.service.FeedQueryService;
+import com.godlife.feedapi.controller.dto.request.CreateFeedRequest;
+import com.godlife.feedapi.controller.dto.response.ApiResponse;
 import com.godlife.feeddomain.dto.FeedMindsetsTodosDto;
 import com.godlife.feeddomain.dto.FeedsDto;
 

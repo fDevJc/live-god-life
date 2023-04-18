@@ -1,4 +1,4 @@
-package com.godlife.feedapi.presentation.dto.response;
+package com.godlife.feedapi.controller.dto.response;
 
 import lombok.Getter;
 
