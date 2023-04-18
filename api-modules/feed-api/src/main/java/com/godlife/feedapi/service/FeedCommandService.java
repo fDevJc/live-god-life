@@ -21,6 +21,8 @@ public class FeedCommandService {
 
 	private final FeedCreateService feedCreateService;
 
+
+	//TODO 연관관계 다시 고려해보자
 	public void createFeed(CreateFeedRequest feedDto) {
 
 		Feed feed = feedDto.createFeedEntity();

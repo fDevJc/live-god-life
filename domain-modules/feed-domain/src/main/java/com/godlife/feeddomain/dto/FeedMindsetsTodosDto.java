@@ -4,10 +4,10 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-// import com.godlife.feeddomain.client.response.UserResponse;
 import com.godlife.feeddomain.domain.enums.Category;
 import com.querydsl.core.annotations.QueryProjection;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 //TODO dto 정리
@@ -23,7 +23,7 @@ public class FeedMindsetsTodosDto {
 	//===사용자정보===
 	@JsonIgnore
 	private Long userId;
-	// private UserResponse.UserDto user;
+	private UserDto user;
 
 	private Boolean bookMarkStatus;
 
@@ -74,9 +74,16 @@ public class FeedMindsetsTodosDto {
 		this.bookMarkStatus = bookMarkStatus;
 	}
 
-
 	//TODO 리팩토링 대상
-	// public void setUserInfo(List<UserResponse.UserDto> user) {
-	// 	this.user = user.get(0);
-	// }
+	public void setUserInfo(UserDto user) {
+		this.user = user;
+	}
+
+	@AllArgsConstructor
+	@Getter
+	public static class UserDto {
+		private Long userId;
+		private String nickname;
+		private String image;
+	}
 }

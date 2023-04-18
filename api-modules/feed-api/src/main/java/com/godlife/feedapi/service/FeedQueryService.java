@@ -12,6 +12,7 @@ import com.godlife.feedapi.client.response.BookmarkResponse;
 import com.godlife.feedapi.client.response.UserResponse;
 import com.godlife.feeddomain.dto.FeedDto;
 import com.godlife.feeddomain.dto.FeedMindsetsTodosDto;
+import com.godlife.feeddomain.exception.NoSuchBookmarkException;
 import com.godlife.feeddomain.service.FeedService;
 
 import lombok.RequiredArgsConstructor;
@@ -29,11 +30,8 @@ public class FeedQueryService {
 	public List<FeedDto> getFeeds(Pageable page, Long userId, String category, List<Long> feedIds) {
 		List<FeedDto> feedDtos = feedService.getFeeds(page, category, feedIds);
 
-		List<UserResponse.UserDto> users = getUsersInfoUsingAPI(getUserIdsToString(feedDtos));
-		List<BookmarkResponse.BookmarkDto> bookmarks = getBookmarksInfoUsingAPI(userId, getFeedIdsToString(feedDtos));
-
-		assembleUsersIntoFeeds(feedDtos, users);
-		assembleBookmarksIntoFeeds(feedDtos, bookmarks);
+		assembleUsersIntoFeeds(feedDtos, getUsersInfoUsingAPI(getUserIdsToString(feedDtos)));
+		assembleBookmarksIntoFeeds(feedDtos, getBookmarksInfoUsingAPI(userId, getFeedIdsToString(feedDtos)));
 
 		return feedDtos;
 	}
@@ -46,7 +44,6 @@ public class FeedQueryService {
 			.registerBookmark(bookmarkDto.isBookmarkStatus()));
 	}
 
-	//TODO feedDto 정리
 	private void assembleUsersIntoFeeds(List<FeedDto> feedDtos, List<UserResponse.UserDto> userDtos) {
 		userDtos.forEach(userDto -> feedDtos.stream()
 			.filter(feedsDto -> feedsDto.getUserId().equals(userDto.getUserId()))
@@ -87,15 +84,15 @@ public class FeedQueryService {
 
 	public FeedMindsetsTodosDto getFeedDetail(Long userId, Long feedId) {
 		FeedMindsetsTodosDto feedMindsetsTodosDto = feedService.getFeedDetail(feedId);
-		// TODO dto 리팩토링 대상
-		// feedMindsetsTodosDto.setUserInfo(getUsersInfoUsingAPI(feedMindsetsTodosDto.getUserId().toString()));
-		// feedMindsetsTodosDto.setBookmarkStatus(
-		// 	getBookmarksInfoUsingAPI(userId, feedId.toString())
-		// 		.stream()
-		// 		.filter(bookmarkDto -> bookmarkDto.getFeedId().equals(feedId))
-		// 		.findAny()
-		// 		.orElseThrow(() -> new NoSuchBookmarkException(feedId))
-		// 		.isBookmarkStatus());
+		UserResponse.UserDto userDto = getUsersInfoUsingAPI(feedMindsetsTodosDto.getUserId().toString()).get(0);
+		feedMindsetsTodosDto.setUserInfo(new FeedMindsetsTodosDto.UserDto(userDto.getUserId(), userDto.getNickname(), userDto.getImage()));
+		feedMindsetsTodosDto.setBookmarkStatus(
+			getBookmarksInfoUsingAPI(userId, feedId.toString())
+				.stream()
+				.filter(bookmarkDto -> bookmarkDto.getFeedId().equals(feedId))
+				.findAny()
+				.orElseThrow(() -> new NoSuchBookmarkException(feedId))
+				.isBookmarkStatus());
 		return feedMindsetsTodosDto;
 	}
 }

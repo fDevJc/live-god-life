@@ -42,7 +42,7 @@ public class FeedController {
 	private static final int DEFAULT_PAGE = 30;
 
 	@PostMapping("/feeds")
-	public ResponseEntity<ApiResponse> createFeed(
+	public ResponseEntity createFeed(
 		@RequestBody CreateFeedRequest request) {
 
 		feedCommandService.createFeed(request);
@@ -51,7 +51,7 @@ public class FeedController {
 	}
 
 	@GetMapping("/feeds")
-	public ResponseEntity<ApiResponse> getFeeds(
+	public ResponseEntity<ApiResponse<List<FeedDto>>> getFeeds(
 		@PageableDefault(size = DEFAULT_PAGE) Pageable page,
 		@RequestHeader(USER_ID_HEADER) Long userId,
 		@RequestParam(value = "category", required = false) String category,
@@ -59,17 +59,17 @@ public class FeedController {
 
 		List<FeedDto> feeds = feedQueryService.getFeeds(page, userId, category, feedIds);
 
-		return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(feeds));
+		return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(feeds));
 	}
 
 	@GetMapping("/feeds/{feedId}")
-	public ResponseEntity<ApiResponse> getFeedDetail(
+	public ResponseEntity<ApiResponse<FeedMindsetsTodosDto>> getFeedDetail(
 		@RequestHeader(USER_ID_HEADER) Long userId,
 		@PathVariable(value = "feedId") Long feedId) {
 
 		FeedMindsetsTodosDto feedDetail = feedQueryService.getFeedDetail(userId, feedId);
 
-		return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(feedDetail));
+		return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(feedDetail));
 	}
 
 	//TODO 리팩토링 대상
