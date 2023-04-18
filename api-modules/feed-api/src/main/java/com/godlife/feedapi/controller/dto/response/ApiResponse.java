@@ -5,12 +5,12 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class ApiResponse {
+public class ApiResponse<T> {
 	private String status;
 	private String message;
-	private Object data;
+	private T data;
 
-	public ApiResponse(Object data) {
+	public ApiResponse(T data) {
 		this.status = ResponseCode.SUCCESS.getLowerName();
 		this.data = data;
 	}

@@ -1,17 +1,25 @@
 package com.godlife.feedapi.acceptance;
 
+import java.util.List;
+
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.TestExecutionListeners;
 
 import com.godlife.feedapi.common.RequestBuilder;
+import com.godlife.feedapi.controller.dto.response.ApiResponse;
+import com.godlife.feeddomain.dto.FeedsDto;
 
 import io.restassured.RestAssured;
+import io.restassured.mapper.TypeRef;
 import io.restassured.response.Response;
 
+@TestExecutionListeners(value = {AcceptanceTestExecutionListener.class,}, mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class FeedAcceptanceTest {
 	@LocalServerPort
@@ -46,7 +54,7 @@ public class FeedAcceptanceTest {
 		피드_등록_요청();
 
 		//when & then
-		RestAssured
+		ApiResponse<List<FeedsDto>> ret = RestAssured
 			.given().log().all()
 			.contentType(MediaType.APPLICATION_JSON_VALUE)
 			.accept(MediaType.APPLICATION_JSON_VALUE)
@@ -54,7 +62,12 @@ public class FeedAcceptanceTest {
 			.when()
 			.get("/feeds")
 			.then().log().all()
-			.statusCode(HttpStatus.OK.value());
+			.statusCode(HttpStatus.OK.value())
+			.extract()
+			.as(new TypeRef<>() {
+			});
+
+		Assertions.assertThat(ret.getData().size()).isEqualTo(1);
 	}
 
 	@Test
