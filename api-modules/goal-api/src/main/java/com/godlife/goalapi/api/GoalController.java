@@ -7,32 +7,88 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.godlife.goaldomain.dto.request.CreateGoalRequest;
+import com.godlife.goaldomain.dto.request.UpdateGoalTodoScheduleRequest;
 import com.godlife.goaldomain.dto.response.ApiResponse;
+import com.godlife.goaldomain.service.GoalCommandService;
 import com.godlife.goaldomain.service.GoalQueryService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-/*
-    todo
-    - 목표 추가 후 client 원하는 response 데이터 물어보기
-    - date : yyyyMM 날짜형태의 좋은 변수명이 뭘까
-    - validation check 추가
- */
-
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-public class GoalQueryController {
+public class GoalController {
+	private final GoalCommandService goalCommandService;
 	private final GoalQueryService goalQueryService;
-	private static final String USER_ID_HEADER = "x-user";
 	private static final int DEFAULT_PAGE = 25;
+	private static final String USER_ID_HEADER = "x-user";
+
+	@PostMapping("/goals")
+	public ResponseEntity<ApiResponse> createGoal(
+		@RequestHeader(USER_ID_HEADER) Long userId,
+		@RequestBody CreateGoalRequest request) {
+
+		goalCommandService.createGoal(userId, request);
+
+		return ResponseEntity
+			.status(HttpStatus.CREATED)
+			.body(ApiResponse.createPostSuccessResponse());
+	}
+
+	@PatchMapping("/goals/todoSchedules/{todoScheduleId}")
+	public ResponseEntity<ApiResponse> patchCompletionStatus(
+		@RequestHeader(USER_ID_HEADER) Long userId,
+		@PathVariable(value = "todoScheduleId") Long todoScheduleId,
+		@RequestBody UpdateGoalTodoScheduleRequest request) {
+
+		goalCommandService.updateTodoScheduleCompletionStatus(userId, todoScheduleId, request.getCompletionStatus());
+
+		return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.createPatchSuccessResponse());
+	}
+
+	@DeleteMapping("/goals/todos/{todoId}")
+	public ResponseEntity<ApiResponse> deleteTodoDetail(
+		@RequestHeader(USER_ID_HEADER) Long userId,
+		@PathVariable(value = "todoId") Long todoId) {
+
+		goalCommandService.deleteTodo(userId, todoId);
+
+		return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.createDeleteSuccessResponse());
+	}
+
+	@DeleteMapping("/goals/{goalId}")
+	public ResponseEntity<ApiResponse> deleteGoal(
+		@RequestHeader(USER_ID_HEADER) Long userId,
+		@PathVariable(value = "goalId") Long goalId) {
+
+		goalCommandService.deleteGoal(userId, goalId);
+
+		return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.createDeleteSuccessResponse());
+	}
+
+	@PutMapping("/goals/{goalId}")
+	public ResponseEntity<ApiResponse> modifyGoal(
+		@RequestHeader(USER_ID_HEADER) Long userId,
+		@PathVariable(value = "goalId") Long goalId,
+		@RequestBody CreateGoalRequest request) {
+
+		goalCommandService.modifyGoal(userId, goalId, request);
+
+		return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.createPutSuccessResponse());
+	}
 
 	@GetMapping("/goals")
 	public ResponseEntity<ApiResponse> getGoals(
@@ -102,7 +158,4 @@ public class GoalQueryController {
 
 		return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.createGetSuccessResponse(goalQueryService.getTodoSchedules(page, userId, todoId, criteria)));
 	}
-
 }
-
-

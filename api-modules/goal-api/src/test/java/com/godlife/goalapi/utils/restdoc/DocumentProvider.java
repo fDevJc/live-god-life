@@ -1,9 +1,9 @@
-package com.godlife.goaldomain.utils.restdoc;
+package com.godlife.goalapi.utils.restdoc;
+
+import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 
 import org.springframework.restdocs.payload.RequestFieldsSnippet;
 import org.springframework.restdocs.payload.ResponseFieldsSnippet;
-
-import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 
 /*
     todo

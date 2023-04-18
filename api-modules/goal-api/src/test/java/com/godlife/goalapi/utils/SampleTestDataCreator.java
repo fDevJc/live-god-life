@@ -1,8 +1,8 @@
-package com.godlife.goaldomain.utils;
-
-import com.godlife.goaldomain.dto.request.CreateGoalTodoRequest;
+package com.godlife.goalapi.utils;
 
 import java.util.List;
+
+import com.godlife.goaldomain.dto.request.CreateGoalTodoRequest;
 
 public class SampleTestDataCreator {
 	public static CreateGoalTodoRequest getCreateGoalTodoTaskRequest(String title, Integer depth, Integer orderNumber,

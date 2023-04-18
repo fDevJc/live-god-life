@@ -1,35 +1,37 @@
-package com.godlife.goaldomain.api;
+package com.godlife.goalapi.unit.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.godlife.goaldomain.dto.request.CreateGoalMindsetRequest;
-import com.godlife.goaldomain.dto.request.CreateGoalRequest;
-import com.godlife.goaldomain.dto.request.CreateGoalTodoRequest;
-import com.godlife.goaldomain.dto.request.UpdateGoalTodoScheduleRequest;
+
+import static com.godlife.goalapi.utils.SampleTestDataCreator.*;
+import static com.godlife.goalapi.utils.restdoc.DocumentProvider.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.*;
+import static org.springframework.restdocs.payload.PayloadDocumentation.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static reactor.core.publisher.Mono.*;
+
+import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
-import java.util.List;
-
-import static com.godlife.goaldomain.utils.SampleTestDataCreator.getCreateGoalTodoFolderRequest;
-import static com.godlife.goaldomain.utils.SampleTestDataCreator.getCreateGoalTodoTaskRequest;
-import static com.godlife.goaldomain.utils.restdoc.DocumentProvider.getPostGoalsRequestFieldsSnippet;
-import static com.godlife.goaldomain.utils.restdoc.DocumentProvider.getSuccessResponseFieldsSnippet;
-import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
-import static org.springframework.restdocs.payload.PayloadDocumentation.relaxedResponseFields;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.godlife.goalapi.api.GoalController;
+import com.godlife.goaldomain.dto.request.CreateGoalMindsetRequest;
+import com.godlife.goaldomain.dto.request.CreateGoalRequest;
+import com.godlife.goaldomain.dto.request.CreateGoalTodoRequest;
+import com.godlife.goaldomain.dto.request.UpdateGoalTodoScheduleRequest;
+import com.godlife.goaldomain.service.GoalCommandService;
+import com.godlife.goaldomain.service.GoalQueryService;
 
 /*
     todo
@@ -38,12 +40,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 @AutoConfigureRestDocs
-@SpringBootTest
-class GoalQueryControllerTest {
+@WebMvcTest({GoalController.class})
+class GoalControllerTest {
 	@Autowired
 	private MockMvc mockMvc;
 	@Autowired
 	private ObjectMapper objectMapper;
+
+	@MockBean
+	GoalCommandService goalCommandService;
+
+	@MockBean
+	GoalQueryService goalQueryService;
 
 	private static final String USER_ID_HEADER = "x-user";
 	private static final Long TEST_USER_ID = 1L;
@@ -127,7 +135,7 @@ class GoalQueryControllerTest {
 			.header(USER_ID_HEADER, TEST_USER_ID)
 			.queryParam("page", "0")
 			.queryParam("size", "5")
-			.queryParam("completionStatus","false")
+			.queryParam("completionStatus", "false")
 			.accept(MediaType.APPLICATION_JSON));
 
 		//then
@@ -228,7 +236,8 @@ class GoalQueryControllerTest {
 		//when
 		ResultActions result = mockMvc.perform(get("/goals/{goalId}", 1)
 			.header(USER_ID_HEADER, TEST_USER_ID)
-			.accept(MediaType.APPLICATION_JSON));;
+			.accept(MediaType.APPLICATION_JSON));
+		;
 
 		//then
 		result
