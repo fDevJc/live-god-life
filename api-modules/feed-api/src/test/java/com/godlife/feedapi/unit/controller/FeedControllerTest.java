@@ -23,7 +23,7 @@ import com.godlife.feedapi.client.response.BookmarkResponse;
 import com.godlife.feedapi.client.response.UserResponse;
 import com.godlife.feedapi.controller.FeedController;
 
-import com.godlife.feeddomain.dto.FeedsDto;
+import com.godlife.feeddomain.dto.FeedDto;
 import com.godlife.feeddomain.service.FeedService;
 
 @WebMvcTest({FeedController.class})
@@ -48,7 +48,7 @@ public class FeedControllerTest {
 	void getFeedAll() throws Exception {
 		//when
 		when(feedQueryService.getFeeds(any(), any(), any(), any()))
-			.thenReturn(List.of(new FeedsDto(1L, "타이틀", "카테고리", 0, 0, 0, 0, "image", 1L)));
+			.thenReturn(List.of(new FeedDto(1L, "타이틀", "카테고리", 0, 0, 0, 0, "image", 1L)));
 
 		//then
 		mockMvc.perform(get("/feeds")

@@ -15,11 +15,12 @@ import com.godlife.feeddomain.service.FeedCreateService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
+@Transactional
 @Service
 public class FeedCommandService {
+
 	private final FeedCreateService feedCreateService;
 
-	@Transactional
 	public void createFeed(CreateFeedRequest feedDto) {
 
 		Feed feed = feedDto.createFeedEntity();

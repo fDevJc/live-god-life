@@ -1,26 +1,17 @@
 spring:
+  output:
+    ansi:
+      enabled: always
+
   cloud:
     discovery:
       enabled: false
 
-  datasource:
-    url: jdbc:h2:mem:live-god-life;DATABASE_TO_LOWER=TRUE;MODE=MySQL
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
-
   jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-        format_sql: true
-    generate-ddl: true
+    show-sql: true
 
 logging:
   level:
-    org:
-        hibernate:
-          SQL: debug
-          type.descriptor.sql: trace
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+

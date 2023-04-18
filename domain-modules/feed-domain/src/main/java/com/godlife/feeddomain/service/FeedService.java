@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.godlife.feeddomain.dto.FeedMindsetsTodosDto;
-import com.godlife.feeddomain.dto.FeedsDto;
+import com.godlife.feeddomain.dto.FeedDto;
 import com.godlife.feeddomain.repository.FeedRepository;
 
 import lombok.AllArgsConstructor;
@@ -21,9 +21,9 @@ import lombok.extern.slf4j.Slf4j;
 public class FeedService {
 	private final FeedRepository feedRepository;
 
-	public List<FeedsDto> getFeeds(Pageable page, Long userId, @Nullable String category, @Nullable List<Long> feedIds) {
-		List<FeedsDto> feedsDtos = feedRepository.findAllByCategoryAndFeedIds(page, category, feedIds);
-		return feedsDtos;
+	public List<FeedDto> getFeeds(Pageable page, @Nullable String category, @Nullable List<Long> feedIds) {
+		List<FeedDto> feedDtos = feedRepository.findAllByCategoryAndFeedIds(page, category, feedIds);
+		return feedDtos;
 	}
 
 	/*
@@ -31,7 +31,7 @@ public class FeedService {
 		조회수 증가 로직 분리하기
 	 */
 	@Transactional
-	public FeedMindsetsTodosDto getFeedDetail(Long userId, Long feedId) {
+	public FeedMindsetsTodosDto getFeedDetail(Long feedId) {
 		FeedMindsetsTodosDto feedMindsetsTodosDto = feedRepository.findFeedWithMindsetsAndTodosByFeedId(feedId);
 		return feedMindsetsTodosDto;
 	}

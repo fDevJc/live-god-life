@@ -22,9 +22,7 @@ public class FeedCreateService {
 	private final MindsetRepository mindsetRepository;
 	private final TodoRepository todoRepository;
 
-	//TODO dto 정리
 	public void createFeed(List<Content> contents, List<Mindset> mindsets, List<Todo> todos) {
-		System.out.println("FeedService.createFeed");
 		contentRepository.saveAll(contents);
 		mindsetRepository.saveAll(mindsets);
 		todoRepository.saveAll(todos);

@@ -4,12 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import com.querydsl.core.annotations.QueryProjection;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 
 //TODO dto 정리
 @Getter
-public class FeedsDto {
+public class FeedDto {
 	private Long feedId;
 	private String title;
 	private String category;
@@ -29,10 +30,10 @@ public class FeedsDto {
 	//===사용자정보===
 	@JsonIgnore
 	private Long userId;
-	// private UserResponse.UserDto user;
+	private UserDto user;
 
 	@QueryProjection
-	public FeedsDto(Long feedId, String title, String category, int viewCount, int pickCount, int todoCount, int todoScheduleDay, String image, Long userId) {
+	public FeedDto(Long feedId, String title, String category, int viewCount, int pickCount, int todoCount, int todoScheduleDay, String image, Long userId) {
 		this.feedId = feedId;
 		this.title = title;
 		this.category = category;
@@ -44,11 +45,19 @@ public class FeedsDto {
 		this.userId = userId;
 	}
 
-	// public void registerUser(UserResponse.UserDto userDto) {
-	// 	this.user = userDto;
-	// }
+	public void registerUser(UserDto userDto) {
+		this.user = userDto;
+	}
 
 	public void registerBookmark(boolean bookmarkStatus) {
 		this.bookMarkStatus = bookmarkStatus;
+	}
+
+	@AllArgsConstructor
+	@Getter
+	public static class UserDto {
+		private Long userId;
+		private String nickname;
+		private String image;
 	}
 }

@@ -1,7 +1,5 @@
 package com.godlife.feeddomain.repository.impl;
 
-
-
 import static com.godlife.feeddomain.domain.QContent.*;
 import static com.godlife.feeddomain.domain.QFeed.*;
 import static com.godlife.feeddomain.domain.QMindset.*;
@@ -18,15 +16,14 @@ import javax.persistence.EntityManager;
 
 import org.springframework.data.domain.Pageable;
 
-
 import com.godlife.feeddomain.domain.enums.Category;
 import com.godlife.feeddomain.dto.ContentDto;
+import com.godlife.feeddomain.dto.FeedDto;
 import com.godlife.feeddomain.dto.FeedMindsetsTodosDto;
-import com.godlife.feeddomain.dto.FeedsDto;
 import com.godlife.feeddomain.dto.MindsetDto;
 import com.godlife.feeddomain.dto.QContentDto;
+import com.godlife.feeddomain.dto.QFeedDto;
 import com.godlife.feeddomain.dto.QFeedMindsetsTodosDto;
-import com.godlife.feeddomain.dto.QFeedsDto;
 import com.godlife.feeddomain.dto.QMindsetDto;
 import com.godlife.feeddomain.dto.QTodoDto;
 import com.godlife.feeddomain.dto.TodoDto;
@@ -45,10 +42,10 @@ public class FeedRepositoryCustomImpl implements FeedRepositoryCustom {
 	}
 
 	@Override
-	public List<FeedsDto> findAllByCategoryAndFeedIds(Pageable page, String category, List<Long> feedIds) {
+	public List<FeedDto> findAllByCategoryAndFeedIds(Pageable page, String category, List<Long> feedIds) {
 		return queryFactory
 			.select(
-				new QFeedsDto(
+				new QFeedDto(
 					feed.feedId,
 					feed.title,
 					feed.category.stringValue(),

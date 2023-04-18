@@ -26,7 +26,7 @@ import com.godlife.feedapi.service.FeedQueryService;
 import com.godlife.feedapi.controller.dto.request.CreateFeedRequest;
 import com.godlife.feedapi.controller.dto.response.ApiResponse;
 import com.godlife.feeddomain.dto.FeedMindsetsTodosDto;
-import com.godlife.feeddomain.dto.FeedsDto;
+import com.godlife.feeddomain.dto.FeedDto;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -57,7 +57,7 @@ public class FeedController {
 		@RequestParam(value = "category", required = false) String category,
 		@RequestParam(value = "ids", required = false) List<Long> feedIds) {
 
-		List<FeedsDto> feeds = feedQueryService.getFeeds(page, userId, category, feedIds);
+		List<FeedDto> feeds = feedQueryService.getFeeds(page, userId, category, feedIds);
 
 		return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(feeds));
 	}
