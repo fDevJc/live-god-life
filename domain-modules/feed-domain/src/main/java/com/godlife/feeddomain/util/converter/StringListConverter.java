@@ -1,4 +1,4 @@
-package com.godlife.feeddomain.domain.converter;
+package com.godlife.feeddomain.util.converter;
 
 import static java.util.Objects.*;
 

@@ -9,9 +9,9 @@ import com.godlife.feeddomain.domain.Mindset;
 import com.godlife.feeddomain.domain.Todo;
 import com.godlife.feeddomain.domain.TodoFolder;
 import com.godlife.feeddomain.domain.TodoTask;
-import com.godlife.feeddomain.domain.enums.Category;
-import com.godlife.feeddomain.domain.enums.RepetitionType;
-import com.godlife.feeddomain.domain.enums.TodoType;
+import com.godlife.feeddomain.enums.Category;
+import com.godlife.feeddomain.enums.RepetitionType;
+import com.godlife.feeddomain.enums.TodoType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

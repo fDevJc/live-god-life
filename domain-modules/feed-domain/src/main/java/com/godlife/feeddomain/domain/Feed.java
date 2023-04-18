@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.Comment;
 
-import com.godlife.feeddomain.domain.enums.Category;
+import com.godlife.feeddomain.enums.Category;
 
 import lombok.AccessLevel;
 import lombok.Getter;

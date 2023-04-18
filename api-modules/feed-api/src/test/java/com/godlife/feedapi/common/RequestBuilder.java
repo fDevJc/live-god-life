@@ -3,9 +3,9 @@ package com.godlife.feedapi.common;
 import java.util.List;
 
 import com.godlife.feedapi.controller.dto.request.CreateFeedRequest;
-import com.godlife.feeddomain.domain.enums.Category;
-import com.godlife.feeddomain.domain.enums.RepetitionType;
-import com.godlife.feeddomain.domain.enums.TodoType;
+import com.godlife.feeddomain.enums.Category;
+import com.godlife.feeddomain.enums.RepetitionType;
+import com.godlife.feeddomain.enums.TodoType;
 
 public class RequestBuilder {
 

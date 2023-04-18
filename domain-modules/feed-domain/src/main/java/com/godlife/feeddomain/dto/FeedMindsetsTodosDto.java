@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.godlife.feeddomain.domain.enums.Category;
+import com.godlife.feeddomain.enums.Category;
 import com.querydsl.core.annotations.QueryProjection;
 
 import lombok.AllArgsConstructor;

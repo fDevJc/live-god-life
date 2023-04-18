@@ -16,7 +16,7 @@ import javax.persistence.EntityManager;
 
 import org.springframework.data.domain.Pageable;
 
-import com.godlife.feeddomain.domain.enums.Category;
+import com.godlife.feeddomain.enums.Category;
 import com.godlife.feeddomain.dto.ContentDto;
 import com.godlife.feeddomain.dto.FeedDto;
 import com.godlife.feeddomain.dto.FeedMindsetsTodosDto;

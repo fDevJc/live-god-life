@@ -1,4 +1,4 @@
-package com.godlife.feeddomain.domain.enums;
+package com.godlife.feeddomain.enums;
 
 public enum Category {
 	ALL("전체"),
