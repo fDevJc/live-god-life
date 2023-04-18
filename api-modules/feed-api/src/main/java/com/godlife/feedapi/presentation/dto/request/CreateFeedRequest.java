@@ -13,8 +13,14 @@ import com.godlife.feeddomain.domain.enums.Category;
 import com.godlife.feeddomain.domain.enums.RepetitionType;
 import com.godlife.feeddomain.domain.enums.TodoType;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Getter
 public class CreateFeedRequest {
 	private Long userId;
@@ -78,6 +84,9 @@ public class CreateFeedRequest {
 		}
 	}
 
+	@AllArgsConstructor
+	@NoArgsConstructor
+	@Builder
 	@Getter
 	public static class CreateFeedContentRequest {
 		private String title;
@@ -85,11 +94,17 @@ public class CreateFeedRequest {
 		private Integer orderNumber;
 	}
 
+	@AllArgsConstructor
+	@NoArgsConstructor
+	@Builder
 	@Getter
 	public static class CreateFeedMindsetRequest {
 		private String content;
 	}
 
+	@AllArgsConstructor
+	@NoArgsConstructor
+	@Builder
 	@Getter
 	public static class CreateFeedTodoRequest {
 		private String title;
