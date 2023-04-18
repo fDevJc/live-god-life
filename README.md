@@ -6,12 +6,14 @@
   - dto: request, response
   - presentation: controller
   - application: service
+    - 서비스 비즈니스
 - api-core
  
 ### domain-modules
 > domain 비즈니스 처리 영역.
 - xxx-domain
   - service:
+    - 도메인 비즈니스
   - dto:
   - domain:
   - repository:

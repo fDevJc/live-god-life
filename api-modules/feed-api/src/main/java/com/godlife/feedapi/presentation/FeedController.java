@@ -45,7 +45,9 @@ public class FeedController {
 	public ResponseEntity<ApiResponse> createFeed(
 		@RequestBody CreateFeedRequest request) {
 
-		// feedCommandService.createFeed(request);
+		System.out.println("request = " + request);
+
+		feedCommandService.createFeed(request);
 		return null;
 	}
 

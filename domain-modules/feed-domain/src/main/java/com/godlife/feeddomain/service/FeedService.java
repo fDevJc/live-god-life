@@ -7,6 +7,9 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.godlife.feeddomain.domain.Content;
+import com.godlife.feeddomain.domain.Mindset;
+import com.godlife.feeddomain.domain.Todo;
 import com.godlife.feeddomain.dto.FeedMindsetsTodosDto;
 import com.godlife.feeddomain.dto.FeedsDto;
 import com.godlife.feeddomain.repository.ContentRepository;
@@ -43,19 +46,11 @@ public class FeedService {
 	}
 
 	//TODO dto 정리
-
-	// @Transactional
-	// public void createFeed(CreateFeedRequest feedDto) {
-	//
-	// 	Feed feed = feedDto.createFeedEntity();
-	// 	List<Content> contents = feedDto.createContentsEntity(feed);
-	// 	List<Mindset> mindsets = feedDto.createMindsetsEntity(feed);
-	// 	Todos todos = new Todos(feedDto.createTodosEntity(feed));
-	//
-	// 	feed.registerTodosInfo(todos);
-	//
-	// 	contentRepository.saveAll(contents);
-	// 	mindsetRepository.saveAll(mindsets);
-	// 	todoRepository.saveAll(todos.get());
-	// }
+	@Transactional
+	public void createFeed(List<Content> contents, List<Mindset> mindsets, List<Todo> todos) {
+		System.out.println("FeedService.createFeed");
+		contentRepository.saveAll(contents);
+		mindsetRepository.saveAll(mindsets);
+		todoRepository.saveAll(todos);
+	}
 }
