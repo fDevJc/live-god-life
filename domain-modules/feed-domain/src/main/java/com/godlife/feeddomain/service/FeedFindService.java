@@ -18,21 +18,14 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 @Transactional(readOnly = true)
 @Service
-public class FeedService {
+public class FeedFindService {
 	private final FeedRepository feedRepository;
 
-	public List<FeedDto> getFeeds(Pageable page, @Nullable String category, @Nullable List<Long> feedIds) {
-		List<FeedDto> feedDtos = feedRepository.findAllByCategoryAndFeedIds(page, category, feedIds);
-		return feedDtos;
+	public List<FeedDto> findFeeds(Pageable page, @Nullable String category, @Nullable List<Long> feedIds) {
+		return feedRepository.findAllByCategoryAndFeedIds(page, category, feedIds);
 	}
 
-	/*
-		TODO
-		조회수 증가 로직 분리하기
-	 */
-	@Transactional
-	public FeedMindsetsTodosDto getFeedDetail(Long feedId) {
-		FeedMindsetsTodosDto feedMindsetsTodosDto = feedRepository.findFeedWithMindsetsAndTodosByFeedId(feedId);
-		return feedMindsetsTodosDto;
+	public FeedMindsetsTodosDto findFeedDetail(Long feedId) {
+		return feedRepository.findFeedWithMindsetsAndTodosByFeedId(feedId);
 	}
 }

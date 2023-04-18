@@ -24,7 +24,7 @@ import com.godlife.feedapi.client.response.UserResponse;
 import com.godlife.feedapi.controller.FeedController;
 
 import com.godlife.feeddomain.dto.FeedDto;
-import com.godlife.feeddomain.service.FeedService;
+import com.godlife.feeddomain.service.FeedFindService;
 
 @WebMvcTest({FeedController.class})
 public class FeedControllerTest {
@@ -35,7 +35,7 @@ public class FeedControllerTest {
 	UserClientService userClientService;
 
 	@MockBean
-	FeedService feedService;
+	FeedFindService feedFindService;
 
 	@MockBean
 	FeedQueryService feedQueryService;

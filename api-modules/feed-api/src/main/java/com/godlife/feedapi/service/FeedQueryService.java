@@ -12,8 +12,9 @@ import com.godlife.feedapi.client.response.BookmarkResponse;
 import com.godlife.feedapi.client.response.UserResponse;
 import com.godlife.feeddomain.dto.FeedDto;
 import com.godlife.feeddomain.dto.FeedMindsetsTodosDto;
-import com.godlife.feeddomain.exception.NoSuchBookmarkException;
-import com.godlife.feeddomain.service.FeedService;
+import com.godlife.feeddomain.exception.BookmarkNotFoundException;
+import com.godlife.feeddomain.service.FeedFindService;
+import com.godlife.feeddomain.service.FeedViewCountService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,11 +25,12 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class FeedQueryService {
 
-	private final FeedService feedService;
+	private final FeedFindService feedFindService;
+	private final FeedViewCountService feedViewCountService;
 	private final UserClientService userClientService;
 
 	public List<FeedDto> getFeeds(Pageable page, Long userId, String category, List<Long> feedIds) {
-		List<FeedDto> feedDtos = feedService.getFeeds(page, category, feedIds);
+		List<FeedDto> feedDtos = feedFindService.findFeeds(page, category, feedIds);
 
 		assembleUsersIntoFeeds(feedDtos, getUsersInfoUsingAPI(getUserIdsToString(feedDtos)));
 		assembleBookmarksIntoFeeds(feedDtos, getBookmarksInfoUsingAPI(userId, getFeedIdsToString(feedDtos)));
@@ -82,8 +84,11 @@ public class FeedQueryService {
 			.collect(Collectors.joining(","));
 	}
 
+	@Transactional
 	public FeedMindsetsTodosDto getFeedDetail(Long userId, Long feedId) {
-		FeedMindsetsTodosDto feedMindsetsTodosDto = feedService.getFeedDetail(feedId);
+		FeedMindsetsTodosDto feedMindsetsTodosDto = feedFindService.findFeedDetail(feedId);
+		feedViewCountService.plusViewCount(feedId);
+
 		UserResponse.UserDto userDto = getUsersInfoUsingAPI(feedMindsetsTodosDto.getUserId().toString()).get(0);
 		feedMindsetsTodosDto.setUserInfo(new FeedMindsetsTodosDto.UserDto(userDto.getUserId(), userDto.getNickname(), userDto.getImage()));
 		feedMindsetsTodosDto.setBookmarkStatus(
@@ -91,8 +96,9 @@ public class FeedQueryService {
 				.stream()
 				.filter(bookmarkDto -> bookmarkDto.getFeedId().equals(feedId))
 				.findAny()
-				.orElseThrow(() -> new NoSuchBookmarkException(feedId))
+				.orElseThrow(() -> new BookmarkNotFoundException(feedId))
 				.isBookmarkStatus());
+
 		return feedMindsetsTodosDto;
 	}
 }
