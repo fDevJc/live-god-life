@@ -6,6 +6,8 @@ import static org.mockito.Mockito.*;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,6 +27,7 @@ import io.restassured.RestAssured;
 import io.restassured.mapper.TypeRef;
 import io.restassured.response.Response;
 
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 @TestExecutionListeners(
 	value = {AcceptanceTestExecutionListener.class},
 	mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS
