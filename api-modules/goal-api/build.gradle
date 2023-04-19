@@ -86,6 +86,7 @@ dependencies {
 
     asciidoctorExtensions 'org.springframework.restdocs:spring-restdocs-asciidoctor'
     testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+    testImplementation 'io.rest-assured:rest-assured:3.3.0'
 }
 
 dependencyManagement {

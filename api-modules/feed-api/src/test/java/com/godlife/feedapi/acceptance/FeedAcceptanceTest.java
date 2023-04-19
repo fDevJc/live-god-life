@@ -25,7 +25,10 @@ import io.restassured.RestAssured;
 import io.restassured.mapper.TypeRef;
 import io.restassured.response.Response;
 
-@TestExecutionListeners(value = {AcceptanceTestExecutionListener.class}, mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS)
+@TestExecutionListeners(
+	value = {AcceptanceTestExecutionListener.class},
+	mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS
+)
 @AutoConfigureMockMvc
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class FeedAcceptanceTest {
