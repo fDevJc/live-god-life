@@ -124,8 +124,6 @@ public class GoalController {
 		@RequestHeader(USER_ID_HEADER) Long userId,
 		@RequestParam(value = "date") YearMonth date) {
 
-		log.info("userId: {userId}");
-
 		return ResponseEntity.status(HttpStatus.OK)
 			.body(ApiResponse.createGetSuccessResponse(goalQueryService.getDailyTodosCount(userId, date)));
 	}
