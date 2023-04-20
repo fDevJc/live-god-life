@@ -1,0 +1,11 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: feed-service
+  profiles:
+    active: local
+    include:
+      - domain-local
+  output.ansi.enabled: always
