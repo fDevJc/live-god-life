@@ -1,4 +1,4 @@
-package com.godlife.feedapi.acceptance;
+package com.godlife.goalapi.acceptance;
 
 import java.util.List;
 
